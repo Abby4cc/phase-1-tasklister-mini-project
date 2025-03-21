@@ -15,14 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
     addTask(taskText);
     taskInput.value = "";
 
-    // Debugging: Log the updated task list HTML
+    
     console.log("Task List HTML:", taskList.innerHTML);
   });
 
   function addTask(taskText) {
     const listItem = document.createElement("li");
 
-    // Ensure exact match with the expected test output
     listItem.appendChild(document.createTextNode(taskText));
 
     const deleteButton = document.createElement("button");
