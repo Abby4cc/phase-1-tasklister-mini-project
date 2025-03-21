@@ -1,3 +1,6 @@
+import chai from "chai";
+const { expect } = chai;
+
 document.addEventListener("DOMContentLoaded", function () {
   const taskForm = document.getElementById("create-task-form");
   const taskInput = document.getElementById("new-task-description");
