@@ -1,35 +1,18 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("#create-task-form");
+  const taskList = document.querySelector("#tasks");
 
-document.addEventListener("DOMContentLoaded", function () {
-  const taskForm = document.getElementById("create-task-form");
-  const taskInput = document.getElementById("new-task-description");
-  const taskList = document.getElementById("tasks");
-
-  taskForm.addEventListener("submit", function (event) {
+  form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const taskText = taskInput.value.trim();
-    if (taskText === "") return;
+    const formInput = document.querySelector("#new-task-description");
+    const taskText = formInput.value.trim();
 
-    addTask(taskText);
-    taskInput.value = "";
-
-    console.log("Task List HTML:", taskList.innerHTML);
+    if (taskText) {
+      const taskItem = document.createElement("li");
+      taskItem.textContent = taskText;
+      taskList.appendChild(taskItem);
+      formInput.value = "";
+    }
   });
-
-  function addTask(taskText) {
-    const listItem = document.createElement("li");
-
-    listItem.appendChild(document.createTextNode(taskText));
-
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "remove";
-    deleteButton.style.marginLeft = "10px";
-
-    deleteButton.addEventListener("click", function () {
-      listItem.remove();
-    });
-
-    listItem.appendChild(deleteButton);
-    taskList.appendChild(listItem);
-  }
 });
