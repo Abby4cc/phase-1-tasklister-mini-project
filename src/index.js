@@ -1,18 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("#create-task-form");
-  const taskList = document.querySelector("#tasks");
+  const form = document.getElementById("create-task-form");
+  const taskList = document.getElementById("tasks");
 
-  form.addEventListener("submit", function (event) {
+  form.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const formInput = document.querySelector("#new-task-description");
-    const taskText = formInput.value.trim();
+    const taskDescription = document.getElementById("new-task-description").value.trim();
 
-    if (taskText) {
-      const taskItem = document.createElement("li");
-      taskItem.textContent = taskText;
-      taskList.appendChild(taskItem);
-      formInput.value = "";
+    if (taskDescription !== "") {
+      const newTask = document.createElement("li");
+      newTask.textContent = taskDescription; 
+
+      taskList.appendChild(newTask);
     }
+
+    document.getElementById("new-task-description").value = ""; 
   });
 });
